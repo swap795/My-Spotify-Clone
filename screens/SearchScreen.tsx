@@ -9,7 +9,7 @@ export default function SearchScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Spotify Search</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      <EditScreenInfo path="/screens/SearchScreen.tsx" />
     </View>
   );
 }
