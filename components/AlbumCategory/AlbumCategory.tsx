@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
-import AlbumInfo from '../components/AlbumInfo';
-import { Album } from '../types';
+import AlbumInfo from '../Album/AlbumInfo';
+import { Album } from '../../types';
 
 export type AlbumCategoryProps = {
    title: string,
@@ -13,9 +13,9 @@ const AlbumCategory = (props: AlbumCategoryProps) => (
       <Text style={ styles.title }>{ props.title }</Text>
       <FlatList
          data= { props.albums }
-         renderItem= {
-            ({ item }) => <AlbumInfo album={ item } />
-         }
+         renderItem= { ({ item }) => (
+            <AlbumInfo album={ item } />
+         )}
          keyExtractor={ (item) => item.id }
          horizontal
       />

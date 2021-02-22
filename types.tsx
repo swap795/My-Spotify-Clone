@@ -12,6 +12,7 @@ export type BottomTabParamList = {
 
 export type HomeParamList = {
   HomeScreen: undefined;
+  AlbumScreen: undefined;
 };
 
 export type SearchParamList = {
@@ -28,6 +29,16 @@ export type PremiumParamList = {
 
 export type Album = {
   id: string;
+  name: string;
+  by: string;
+  likes: number;
   imageUri: string;
-  artists: string;
+  artistsHeadline: string;
 };
+
+export type Song = {
+  id: string;
+  imageUri: string;
+  title: string;
+  artist: string;
+}

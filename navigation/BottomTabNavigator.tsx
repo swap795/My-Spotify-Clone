@@ -12,6 +12,8 @@ import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 import PremiumScreen from '../screens/PremiumScreen';
 
+import AlbumScreen from '../screens/AlbumScreen';
+
 import { 
   BottomTabParamList, 
   HomeParamList as HomeParamList, 
@@ -77,7 +79,12 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerTitle: 'Home Title' }}
+        options={{ headerTitle: 'Home' }}
+      />
+      <HomeStack.Screen
+        name="AlbumScreen"
+        component={AlbumScreen}
+        options={{ headerTitle: 'Album' }}
       />
     </HomeStack.Navigator>
   );

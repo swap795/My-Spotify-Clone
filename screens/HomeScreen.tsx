@@ -6,10 +6,10 @@ import EditScreenInfo from '../components/EditScreenInfo';
 
 
 // components
-import AlbumCategory from '../components/AlbumCategory';
+import AlbumCategory from '../components/AlbumCategory/AlbumCategory';
 
 // data
-import albumInfo from '../constants/data';
+import albumCategory from '../constants/albumData';
 
 
 
@@ -17,10 +17,13 @@ export default function HomeScreen() {
   return (
     <View style={ styles.container }>
       <FlatList
-        data= { albumInfo }
-        renderItem= {
-          ({ item }) => <AlbumCategory title={ item.title } albums={ item.albums } /> 
-        }
+        data= { albumCategory }
+        renderItem= {({ item }) => (
+          <AlbumCategory 
+            title={ item.title } 
+            albums={ item.albums } 
+          /> 
+        )}
         keyExtractor={ (item) => item.id }
       />
       {/* <EditScreenInfo path="/screens/HomeScreen.tsx" /> */}
