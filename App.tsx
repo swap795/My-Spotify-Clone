@@ -8,6 +8,12 @@ import Navigation from './navigation';
 
 import PlayerWidget from './components/PlayerWidget/PlayerWidget';
 
+// AWS Amplify
+import Amplify from 'aws-amplify';
+import config from './src/aws-exports.js';
+Amplify.configure(config)
+
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
