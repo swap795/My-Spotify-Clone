@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Image, FlatList } from 'react-native';
 
+import { API, graphqlOperation } from 'aws-amplify';
+import { listAlbumCategorys } from '../src/graphql/queries'
+
 import EditScreenInfo from '../components/EditScreenInfo';
 // import { Text, View } from '../components/Themed';
 
@@ -14,14 +17,33 @@ import albumCategory from '../constants/albumData';
 
 
 export default function HomeScreen() {
+
+  const [categories, setCategories] = React.useState([]);
+
+  React.useEffect(() => {
+
+    const fetchAlbumCategories = async () => {
+      try {
+        const data = await API.graphql(graphqlOperation(listAlbumCategorys));
+        // console.log(data);
+        setCategories(data.data.listAlbumCategorys.items)
+      } catch (e) {
+        console.log(e);
+      }
+
+    }
+
+    fetchAlbumCategories();
+  }, [])
+
   return (
     <View style={ styles.container }>
       <FlatList
-        data= { albumCategory }
+        data= { categories }
         renderItem= {({ item }) => (
           <AlbumCategory 
             title={ item.title } 
-            albums={ item.albums } 
+            albums={ item.Albums.items } 
           /> 
         )}
         keyExtractor={ (item) => item.id }
